@@ -20,5 +20,6 @@ formulario.addEventListener("submit", async (e) => {
     categoria: inputCat,
     id: `${(cantidadProductos.length += 1)}`,
   });
+
   window.location.href = "/admin/panel";
 });
