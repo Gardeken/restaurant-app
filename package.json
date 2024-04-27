@@ -1,10 +1,10 @@
 {
-  "name": "adminpanel",
+  "name": "restaurant_app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "admin": "npm-run-all --parallel start server",
+    "admin": "npm-run-all --parallel server start",
     "start": "nodemon index.js",
     "server": "json-server --watch db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,8 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "d": "^1.0.2",
-    "json-server": "^1.0.0-alpha.23"
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "json-server": "^1.0.0-alpha.23",
+    "mongoose": "^8.3.2",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.0",

@@ -19,10 +19,14 @@ async function conectarDB() {
 }
 
 conectarDB();
-
-app.use("/", express.static(path.resolve("views")));
 app.use(express.json());
-module.exports = app;
+
+//rutas frontend
+app.use("/", express.static(path.resolve("views", "pedidos")));
+app.use("/admin/panel", express.static(path.resolve("views", "adminPanel")));
+
+//rutas backend
 app.use("/controllers", express.static(path.resolve("controllers")));
 app.use("/api/foods", foodRouter);
 app.use("/api/mesa", mesaRouter);
+module.exports = app;
