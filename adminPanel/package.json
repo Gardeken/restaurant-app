@@ -1,0 +1,23 @@
+{
+  "name": "adminpanel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "admin": "npm-run-all --parallel start server",
+    "start": "nodemon index.js",
+    "server": "json-server --watch db.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d": "^1.0.2",
+    "json-server": "^1.0.0-alpha.23"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
