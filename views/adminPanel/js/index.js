@@ -16,6 +16,7 @@ async function deleteProduct(e) {
     const confirmar = confirm("¿Quieres eliminar este producto?");
     if (confirmar) {
       await eliminardelaBD(id);
+      window.location.href = "/admin/panel";
     }
   }
 }

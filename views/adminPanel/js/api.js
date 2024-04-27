@@ -13,12 +13,11 @@ export async function consultarBD() {
 
 export async function agregarBD(producto) {
   try {
-    await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(producto),
+    await axios.post(url, {
+      id: producto.id,
+      nombre: producto.nombre,
+      precio: producto.precio,
+      categoria: producto.categoria,
     });
   } catch (err) {
     console.log(err);
@@ -29,8 +28,8 @@ export async function agregarBD(producto) {
 
 export async function eliminardelaBD(id) {
   try {
-    await fetch(`${url}/${id}`, {
-      method: "DELETE",
+    await axios.delete(url, {
+      params: { id: id },
     });
   } catch (err) {
     console.log(err);

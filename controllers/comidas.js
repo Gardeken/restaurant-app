@@ -32,6 +32,22 @@ foodRouter.get("/", (request, response) => {
   }
 });
 
+foodRouter.post("/", (req, res) => {
+  const { id, nombre, precio, categoria } = req.body;
+  async function agregar() {
+    const newFood = new food();
+    newFood.nombre = nombre;
+    newFood.precio = precio;
+    newFood.categoria = categoria;
+    newFood.id = id;
+    newFood.save();
+    res.json({
+      message: "Se agrego la comida",
+    });
+  }
+  agregar().catch(console.error);
+});
+
 foodRouter.put("/", (request, response) => {
   const { id, nombre, precio, categoria } = request.body;
   try {
@@ -51,6 +67,21 @@ foodRouter.put("/", (request, response) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+foodRouter.delete("/", (req, res) => {
+  const { id } = req.query;
+
+  try {
+    async function eliminar() {
+      await food.findOneAndDelete({ id: parseInt(id) }).then(
+        res.json({
+          message: "Se elimino la comida",
+        })
+      );
+    }
+    eliminar();
+  } catch (error) {}
 });
 
 module.exports = foodRouter;
