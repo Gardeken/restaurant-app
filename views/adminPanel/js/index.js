@@ -13,7 +13,6 @@ containerList.addEventListener("click", deleteProduct);
 async function deleteProduct(e) {
   if (e.target.classList.contains("eliminar")) {
     const id = parseInt(e.target.getAttribute("data-producto"));
-    console.log(id);
     const confirmar = confirm("¿Quieres eliminar este producto?");
     if (confirmar) {
       await eliminardelaBD(id);
@@ -24,7 +23,7 @@ async function deleteProduct(e) {
 async function mostrarProductos() {
   const listadoProductos = await consultarBD();
   if (listadoProductos === 404) {
-    alert("Hubo un error al traer los productos");
+    return alert("Hubo un error al traer los productos");
   }
   listadoProductos.forEach((product) => {
     const { id, nombre, precio, categoria } = product;

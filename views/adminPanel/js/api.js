@@ -1,5 +1,4 @@
 const url = "/api/foods";
-
 // consultar todo
 export async function consultarBD() {
   try {
@@ -30,7 +29,6 @@ export async function agregarBD(producto) {
 
 export async function eliminardelaBD(id) {
   try {
-    await axios(url);
     await fetch(`${url}/${id}`, {
       method: "DELETE",
     });
@@ -43,12 +41,11 @@ export async function eliminardelaBD(id) {
 
 export async function editarBD(producto) {
   try {
-    await fetch(`${url}/${producto.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(producto),
+    await axios.put(url, {
+      id: producto.id,
+      nombre: producto.nombre,
+      precio: producto.precio,
+      categoria: producto.categoria,
     });
   } catch (err) {
     console.log(err);
@@ -59,10 +56,12 @@ export async function editarBD(producto) {
 
 export async function consultaIDBD(id) {
   try {
-    const consulta = await fetch(`${url}/${id}`);
-    const producto = await consulta.json();
-
-    return producto;
+    const producto = await axios.get(url, {
+      params: {
+        id: id,
+      },
+    });
+    return producto.data;
   } catch (err) {
     return 404;
   }

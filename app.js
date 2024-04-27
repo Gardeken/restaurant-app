@@ -23,6 +23,7 @@ app.use(express.json());
 
 //rutas frontend
 app.use("/", express.static(path.resolve("views", "pedidos")));
+
 app.use("/admin/panel", express.static(path.resolve("views", "adminPanel")));
 
 //rutas backend
