@@ -10,13 +10,6 @@ const food = new mongoose.Schema({
 
 //respuesta del usuario en el esquema
 
-food.set("toJSON", {
-  transform: (document, returnedObject) => {
-    delete returnedObject._id;
-    delete returnedObject.__v;
-  },
-});
-
 //registrar el modelo
 
 const comida = mongoose.model("Food", food);
