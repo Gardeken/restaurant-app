@@ -22,6 +22,13 @@ async function consultarBD() {
       },
     });
     if (user.status === 202) {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          usuario: inputUser.value,
+          contraseña: inputPassword.value,
+        })
+      );
       window.location.href = user.data.message;
     }
   } catch (error) {

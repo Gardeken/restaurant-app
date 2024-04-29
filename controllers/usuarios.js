@@ -7,7 +7,7 @@ userRouter.get("/", (req, res) => {
   async function consultarBD() {
     const consulta = await user.findOne({ usuario: usuario });
     if (consulta === null) {
-      return res.status(401).json({
+      return res.status(404).json({
         message: "Usuario no encontrado",
       });
     }
@@ -22,7 +22,7 @@ userRouter.get("/", (req, res) => {
         });
       }
     } else {
-      res.status(401).json({
+      res.status(404).json({
         message: "Contraseña incorrecta",
       });
     }

@@ -7,7 +7,13 @@ const categorias = {
   3: "Bebidas",
 };
 
-document.addEventListener("DOMContentLoaded", mostrarProductos);
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = JSON.parse(localStorage.getItem("user"));
+  if (!usuario) {
+    window.location.href = "/";
+  }
+  mostrarProductos();
+});
 containerList.addEventListener("click", deleteProduct);
 
 async function deleteProduct(e) {
