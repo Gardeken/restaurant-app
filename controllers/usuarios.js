@@ -18,7 +18,7 @@ userRouter.get("/", (req, res) => {
         });
       } else {
         res.status(202).json({
-          message: "/pedidos",
+          message: `/pedidos?usuario=${usuario}`,
         });
       }
     } else {

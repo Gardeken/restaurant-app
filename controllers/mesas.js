@@ -2,13 +2,14 @@ const mesaRouter = require("express").Router();
 const mesa = require("../models/mesa");
 
 mesaRouter.post("/", (request, response) => {
-  const { numMesa, hora, pedido } = request.body;
+  const { numMesa, hora, pedido, usuario } = request.body;
 
   const mesas = new mesa();
 
   mesas.numMesa = numMesa;
   mesas.Hora = hora;
   mesas.pedido = pedido;
+  mesas.usuario = usuario;
 
   async function guardarBD() {
     await mesas.save();

@@ -1,6 +1,8 @@
 const btnCrear = document.querySelector("#guardar-cliente");
 const container2 = document.querySelector("#resumen .contenido");
 const btnSave = document.querySelector("#btn-guardar");
+const URL = new URLSearchParams(window.location.search);
+const usuario = URL.get("usuario");
 
 //crear estructura para guardar
 
@@ -64,6 +66,7 @@ async function guardarBD() {
       numMesa: cliente.mesa,
       hora: cliente.hora,
       pedido: JSON.stringify(cliente.pedido),
+      usuario: usuario,
     });
     alert("Se ha guardado con exito");
   } catch (error) {

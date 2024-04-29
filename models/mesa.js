@@ -5,6 +5,7 @@ const mesa = new mongoose.Schema({
   numMesa: Number,
   Hora: String,
   pedido: String,
+  usuario: String,
 });
 
 //respuesta del usuario en el esquema
