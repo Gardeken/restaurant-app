@@ -27,8 +27,10 @@ async function consultarBD() {
         JSON.stringify({
           usuario: inputUser.value,
           contraseña: inputPassword.value,
+          rol: user.data.rol,
         })
       );
+      console.log(user.data);
       window.location.href = user.data.message;
     }
   } catch (error) {

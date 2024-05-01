@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!usuario) {
     window.location.href = "/";
   }
+  if (usuario.rol === 2) {
+    window.location.href = "/pedidos";
+  }
   mostrarProductos();
 });
 containerList.addEventListener("click", deleteProduct);

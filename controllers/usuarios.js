@@ -15,10 +15,12 @@ userRouter.get("/", (req, res) => {
       if (consulta.rol === 1) {
         res.status(202).json({
           message: "/admin/panel",
+          rol: consulta.rol,
         });
       } else {
         res.status(202).json({
           message: `/pedidos?usuario=${usuario}`,
+          rol: consulta.rol,
         });
       }
     } else {
