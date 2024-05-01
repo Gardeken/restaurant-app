@@ -6,10 +6,20 @@ const usuario = URL.get("usuario");
 
 //crear estructura para guardar
 
-document.addEventListener("DOMContentLoaded", () => {
-  const usuario = JSON.parse(localStorage.getItem("user"));
-  if (!usuario) {
+document.addEventListener("DOMContentLoaded", async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
     window.location.href = "/";
+  }
+
+  try {
+    const consulta = await axios.get("/api/mesa", {
+      params: {
+        usuario: usuario,
+      },
+    });
+  } catch (error) {
+    console.log(error);
   }
 });
 
