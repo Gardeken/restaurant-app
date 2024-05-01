@@ -69,13 +69,18 @@ btnSave.addEventListener("click", () => {
 
 async function guardarBD() {
   try {
+    if (!cliente.mesa) {
+      localStorage.removeItem("user");
+      return (window.location.href = "/");
+    }
     axios.post("/api/mesa", {
       numMesa: cliente.mesa,
       hora: cliente.hora,
       pedido: JSON.stringify(cliente.pedido),
       usuario: usuario,
     });
-    alert("Se ha guardado con exito");
+    window.location.href = "/";
+    localStorage.removeItem("user");
   } catch (error) {
     return alert("No se pudo guardar en la BD");
   }

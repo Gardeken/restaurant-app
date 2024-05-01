@@ -1,11 +1,13 @@
 import { consultarBD, agregarBD, editarBD, eliminardelaBD } from "./api.js";
 
 const containerList = document.querySelector("#listado-Productos");
-const categorias = {
-  1: "Comidas",
-  2: "Postres",
-  3: "Bebidas",
-};
+const logoutBtn = document.querySelector("#logout");
+
+logoutBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  localStorage.removeItem("user");
+  window.location.href = "/";
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const usuario = JSON.parse(localStorage.getItem("user"));
